@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "MyGames";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    if (Session["userId"] == null)
+    {
+        Response.Redirect("~/Home/Login");
+    }
+
+}
+@section scripts {
+    <script src="~/Scripts/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#example').DataTable(
+                {
+                    "ajax": "data/objects.txt",
+                    "columns": [
+                        { "data": "opponent" },
+                        { "data": "date" },
+                        { "data": "move_count" },
+                        { "data": "time" },
+                        { "data": "who_win" }
+                    ]
+                });
+        } );
+    </script>
+}
+
+<h2>MyGames</h2>
+
+
+<table id="example" class="display" style="width:100%">
+    <thead>
+        <tr>
+            <th>opponent</th>
+            <th>date</th>
+            <th>move count</th>
+            <th>time</th>
+            <th>who win</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <th>opponent</th>
+            <th>date</th>
+            <th>move count</th>
+            <th>time</th>
+            <th>who win</th>
+        </tr>
+    </tfoot>
+</table>
