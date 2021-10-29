@@ -28,11 +28,14 @@ public class BoardManager : MonoBehaviour
     public bool isWhiteTurn = true;
     private bool isCheck = false;
 
+    public string token;
+
+
     private void Start()
     {
         Instance = this;
-        //SpawnAllChessman();
-        SpawnAllChessmanTest();
+        SpawnAllChessman();
+        // SpawnAllChessmanTest();
     }
     private void Update()
     {
